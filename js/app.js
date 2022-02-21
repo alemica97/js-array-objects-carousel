@@ -82,9 +82,11 @@ let activeClass = 0;
 //Faccio un ciclo forEach da sostituire al precedente ciclo For
 carouselObjects.forEach((carouselSlide) => {
     // console.log(carouselSlide.image);
-    const image = carouselSlide.image;
-    const place = carouselSlide.place;
-    const description = carouselSlide.description;
+    // const image = carouselSlide.image;
+    // const place = carouselSlide.place;
+    // const description = carouselSlide.description;
+    //sostituisco il metodo precedente con la destrutturazione degli oggetti contenuti nell'array
+    const {image, place, description} = carouselSlide;
     //Creo un div "item" che conterrà un'immagine e un titolo/descrizione
     const item = document.createElement('div');
     item.classList.add('item');
@@ -104,6 +106,13 @@ carouselObjects.forEach((carouselSlide) => {
                             </div>`;
     imgPreview.innerHTML += controlWrapper;
 });
+
+// carouselObjects.forEach((carouselSlide) => {
+//     const {image, place, description} = carouselSlide;
+
+// });
+
+
 // for( let i = 0; i < carouselObjects.length; i++ ){
 //     // console.log(imgCarousel[i], imgPlaces[i]);
 //     const image = carouselObjects[i].image;
