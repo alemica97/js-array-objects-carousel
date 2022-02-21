@@ -87,6 +87,7 @@ const overlayActive = [...document.getElementsByClassName('control-wrapper')];
 let {image, place, description, active} = carouselObjects[i];
 if(active){
     items[i].classList.add('active');
+    overlayActive[i].classList.add('active');
 }
 
 nextImg.addEventListener('click', function(){
@@ -97,11 +98,14 @@ nextImg.addEventListener('click', function(){
     }
     if(active){
         items[i].classList.remove('active');
+        overlayActive[i].classList.remove('active');
         i++;
+        activeClass ++;
         items[i].classList.add('active');
+        overlayActive[i].classList.add('active');
     }
     // console.log(i);
-    activeClass ++;
+    
     if(i == carouselObjects.length - 1){
         items[i].classList.remove('active');
         i = 0;
