@@ -79,19 +79,16 @@ console.log(prevImg);
 //creo una variabile che userò dopo per gestire la classe active
 let activeClass = 0;
 
-for( let i = 0; i < carouselObjects.length; i++ ){
-    // console.log(imgCarousel[i], imgPlaces[i]);
-    const image = carouselObjects[i].image;
-    // console.log(image);
-    const place = carouselObjects[i].place;
-    // console.log(place);
-    const description = carouselObjects[i].description;
-    // console.log(description);
+//Faccio un ciclo forEach da sostituire al precedente ciclo For
+carouselObjects.forEach((carouselSlide) => {
+    // console.log(carouselSlide.image);
+    const image = carouselSlide.image;
+    const place = carouselSlide.place;
+    const description = carouselSlide.description;
     //Creo un div "item" che conterrà un'immagine e un titolo/descrizione
     const item = document.createElement('div');
     item.classList.add('item');
     slidesWrapper.append(item);
-
     //Creo un tag img e un h1 che unisco al div "item" nell'HTML
     const imgItem = `<img src="${image}">`;
     item.innerHTML += imgItem;
@@ -106,8 +103,36 @@ for( let i = 0; i < carouselObjects.length; i++ ){
                                 <img src="${image}">
                             </div>`;
     imgPreview.innerHTML += controlWrapper;
+});
+// for( let i = 0; i < carouselObjects.length; i++ ){
+//     // console.log(imgCarousel[i], imgPlaces[i]);
+//     const image = carouselObjects[i].image;
+//     // console.log(image);
+//     const place = carouselObjects[i].place;
+//     // console.log(place);
+//     const description = carouselObjects[i].description;
+//     // console.log(description);
+//     //Creo un div "item" che conterrà un'immagine e un titolo/descrizione
+//     const item = document.createElement('div');
+//     item.classList.add('item');
+//     slidesWrapper.append(item);
+
+//     //Creo un tag img e un h1 che unisco al div "item" nell'HTML
+//     const imgItem = `<img src="${image}">`;
+//     item.innerHTML += imgItem;
+
+//     const imgTitle = `<h1 class="title">${place}</h1>`;
+//     item.innerHTML += imgTitle;
+
+//     const imgParagraph = `<p class="description">${description}`
+//     item.innerHTML += imgParagraph;
+
+//     const controlWrapper = `<div class="control-wrapper">
+//                                 <img src="${image}">
+//                             </div>`;
+//     imgPreview.innerHTML += controlWrapper;
     
-}
+// }
 
 //creo una costante items simile ad un Array con dentro gli elementi con classe item, ai quali aggiungerò la classe item quando necessario
 const items = [...document.getElementsByClassName('item')];
