@@ -78,6 +78,7 @@ carouselObjects.forEach((carouselSlide) => {
     imgPreview.innerHTML += controlWrapper;
 });
 
+// --------------Superbonus da requestAnimationFrame, probabilmente è errato
 let i = 0;
 //creo una costante items simile ad un Array con dentro gli elementi con classe item, ai quali aggiungerò la classe item quando necessario
 const items = [...document.getElementsByClassName('item')];
@@ -93,8 +94,6 @@ if(active){
 nextImg.addEventListener('click', function(){
     if(i == activeClass){
         active = true;
-    }else{
-        active = false;
     }
     if(active){
         items[i].classList.remove('active');
@@ -123,10 +122,12 @@ prevImg.addEventListener('click', function(){
     }
     if(active){
         items[i].classList.remove('active');
+        overlayActive[i].classList.remove('active');
         i--;
+        activeClass --;
         items[i].classList.add('active');
+        overlayActive[i].classList.add('active');
     };
-    activeClass --;
     if(i == 0){
         items[i].classList.remove('active');
         i = carouselObjects.length - 1;
